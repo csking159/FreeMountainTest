@@ -1,0 +1,89 @@
+﻿@model FreeMountainTest.Models.ViewModels.HomeVM
+
+<div class="container">
+    <div class="row">
+        @*Displays the Campaign Cards*@
+        <div class="col-md">
+            <h1>Campaign Cards</h1>
+            <div class="container mt-3">
+                <div class="row pb-4">
+                    @foreach (var obj in Model.Campaigns)
+                    {
+                        <div class="container pb-4"> @*This starts every individual card*@
+                            <div class="card border">
+                                <div class="card-header bg-dark text-light ms-0 row container">
+                                    
+                                        <h1 class="text-warning">MFID: @obj.Mfid</h1>
+                                    
+                                </div>
+                                <div class="card-body">
+                                    <div class="container rounded p-2">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <table class="table table-striped" style="border:1px solid #808080 ">
+                                                            <tr class="table-secondary">
+                                                                <th>Client</th>
+                                                                <th>Channel</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>@obj.Client</th>
+                                                                <th>@obj.Channel</th>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @*Displays the Response Cards*@
+        <div class="col-md">
+            <h1>Response Cards</h1>
+            <div class="container mt-3">
+                <div class="row pb-4 backgroundWhite">
+                    @foreach (var obj in Model.Responses)
+                    {
+                        <div class="container backgroundWhite pb-4">
+                            <div class="card border">
+                                <div class="card-header bg-dark text-light ms-0 row container">
+                                    
+                                        <h1 class="text-warning">Response Code: @obj.ResponseCode</h1>
+                                    
+                                </div>
+                                <div class="card-body">
+                                    <div class="container rounded p-2">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <table class="table table-striped" style="border:1px solid #808080">
+                                                            <tr class="table-secondary">
+                                                                <th>Channel</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>@obj.Channel</th>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model FreeMountainTest.Models.ViewModels.ResponseVM
+
+<form method="post">
+
+    <input asp-for="Response.ResponseCode" hidden />
+    <div class="border p-3">
+        <div class="mb-3 row">
+            <h2 class="text-info pl-3">Delete Response</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label>RESPONSE_CODE</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Response.ResponseCode" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label>RESPONSE_DESCRIPTION</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Response.ResponseDescription" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label>CHANNEL</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Response.Channel" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger w-100">Delete</button>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

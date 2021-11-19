@@ -1,0 +1,104 @@
+﻿@model FreeMountainTest.Models.ViewModels.CampaignVM
+
+@{
+    var title = "Edit Campaign";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Campaign.Mfid" hidden />
+    <div class="border p-3">
+        <div class="mb-3 row">
+            <h2 class="pl-3">@title</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label>MFID</label>
+                    </div>
+                    <div class="col-8">
+                        <input disabled asp-for="Campaign.Mfid" class="form-control" />
+                        <span asp-validation-for="Campaign.Mfid" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label>MFID Description</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Campaign.MfidDescription" class="form-control" />
+                        <span asp-validation-for="Campaign.MfidDescription" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.Client"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Campaign.Client" asp-items="@Model.ClientSelectList" class="form-control">
+                            <option disabled selected>--Select Client--</option>
+                        </select>
+                        <span asp-validation-for="Campaign.Client" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.Channel"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Campaign.Channel" asp-items="@Model.ChannelSelectList" class="form-control">
+                            <option disabled selected>--Select Channel--</option>
+                        </select>
+                        <span asp-validation-for="Campaign.Channel" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.Promotion"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Campaign.Promotion" class="form-control" />
+                        <span asp-validation-for="Campaign.Promotion" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-primary w-50" style="margin-left: 6em" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-primary w-10"> <i class="fas fa-arrow-left"></i>Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote({
+               height: 250
+            });
+        });
+
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire(
+                    'Error!',
+                    'Please upload an image!',
+                    'error'
+                )
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@model FreeMountainTest.Models.ViewModels.CampaignVM
+
+<form method="post">
+
+    <input asp-for="Campaign.Mfid" hidden />
+    <div class="border p-3">
+        <div class="mb-3 row">
+            <h2 class="text-info pl-3">Delete Campaign</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.Mfid"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Campaign.Mfid" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.MfidDescription"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Campaign.MfidDescription" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.Client"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Campaign.Client" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.Channel"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Campaign.Channel" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Campaign.Promotion"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Campaign.Promotion" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger w-100">Delete</button>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

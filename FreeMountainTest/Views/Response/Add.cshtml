@@ -1,0 +1,82 @@
+﻿@model FreeMountainTest.Models.ViewModels.ResponseVM
+
+@{
+    var title = "Create New Response";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="border p-3">
+        <div class="mb-3 row">
+            <h2 class="ps-3">@title</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label>Response Code</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Response.ResponseCode" class="form-control" />
+                        <span asp-validation-for="Response.ResponseCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label>Response Description</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Response.ResponseDescription" class="form-control" />
+                        <span asp-validation-for="Response.ResponseDescription" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="Response.Channel"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Response.Channel" asp-items="@Model.ChannelSelectList" class="form-control">
+                            <option disabled selected>--Select Channel--</option>
+                        </select>
+                        <span asp-validation-for="Response.Channel" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-primary w-10"> <i class="fas fa-arrow-left"></i>Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote({
+                height: 250
+            });
+        });
+
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire(
+                    'Error!',
+                    'Please upload an image!',
+                    'error'
+                )
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
